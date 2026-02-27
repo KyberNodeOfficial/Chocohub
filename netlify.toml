@@ -1,0 +1,13 @@
+# Chocohub – Netlify config (frontend SPA)
+# Build from repo root: use frontend as app directory.
+
+[build]
+  base    = "frontend"
+  command = "npm run build"
+  publish = "dist"
+
+# SPA: serve index.html for all routes so client-side router works
+[[redirects]]
+  from    = "/*"
+  to      = "/index.html"
+  status  = 200
