@@ -5,6 +5,11 @@ const path = require('path');
 const inputDir = path.join(__dirname, '../frames');
 const outputDir = path.join(__dirname, 'public/frames-optimized');
 
+if (!fs.existsSync(inputDir)) {
+  console.error('Source frames folder not found. Create "frames/" at project root and add PNG/WebP images.');
+  process.exit(1);
+}
+
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
